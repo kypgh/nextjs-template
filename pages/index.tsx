@@ -24,10 +24,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <mai>
+      <main>
         <H1 $color="red">Hello</H1>
         <h1>Hello</h1>
-      </mai>
+      </main>
     </>
   );
 }

@@ -1,51 +1,6 @@
-import { ReactNode } from "react";
-import Link, { LinkProps as NextLinkProps } from "next/link";
 import styled from "styled-components";
-import { usePathname } from "next/navigation";
 import { DefaultTheme } from "styled-components/dist/types";
 import { FlexEnums } from "@/config/cssEnums";
-
-export const SourceLink = styled(Link)`
-  color: ${({ theme }) => theme.textPrimary};
-  font-weight: bold;
-  padding: 2px;
-  border-radius: 5px;
-  background-color: ${({ theme }) => theme.primary};
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-
-  &::before {
-    content: "View Source Code";
-  }
-
-  &::after {
-    content: "👀";
-    padding-left: 5px;
-  }
-`;
-
-interface CustomLinkProps extends NextLinkProps {
-  children: ReactNode;
-  isActive?: boolean;
-  style?: React.CSSProperties;
-}
-
-const StyledLink = styled(Link)<{ $isActive?: boolean }>`
-  color: ${({ theme }) => theme.textSecondary};
-  text-decoration: none;
-`;
-
-export const NavLink = ({ children, ...props }: CustomLinkProps) => {
-  const asPath = usePathname();
-  const linkIsActive = asPath === props.href || asPath === props.as;
-
-  return (
-    <StyledLink {...props} $isActive={linkIsActive}>
-      {children}
-    </StyledLink>
-  );
-};
 
 type ContainerTypes = {
   $mb?: number;
